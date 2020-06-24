@@ -190,56 +190,48 @@ git revert 2ab1123   绝对撤销
   6. 函数：fXXX，如：fGetList；
   7. DOM节点：dXX，如：dDiv，dSpan；
   8. 其他类型：oXXX，如：oButton，oDate；
-  ### console 
-  1. console.table()  
+### console 
+1. console.table()  
   对于某些复合类型的数据，console.table方法可以将其转为表格显示。
-    ```js
-    var languages = [
-      { name: "JavaScript", fileExtension: ".js" },
-      { name: "TypeScript", fileExtension: ".ts" },
-      { name: "CoffeeScript", fileExtension: ".coffee" }
-    ];
-
-    console.table(languages);
-    ```
-  2. console.count()
-    count方法用于计数，输出它被调用了多少次。可以接受一个字符串作为参数，作为标签，对执行次数进行分类。
-    ```js
-    function greet(user) {
-        console.count(user);
-        return "hi " + user;
-      }
-      
-      greet('bob')
-      // bob: 1
-      // "hi bob"
-      
-      greet('alice')
-      // alice: 1
-      // "hi alice"
-      
-      console.log(greet('bob'))
-      // bob: 2
-      // "hi bob"
-    ```
-  3. console.assert()
-
-      方法主要用于程序运行过程中，进行条件判断，如果不满足条件，就显示一个错误，但不会中断程序执行。这样就相当于提示用户，内部状态不正确。 
-
-      `console.assert(false, '判断条件不成立')`
-
-  4. console.time()，console.timeEnd() 计时
-      ```js
-      console.time('Array initialize');
-      var array= new Array(1000000);
-      for (var i = array.length - 1; i >= 0; i--) {
-        array[i] = new Object();
-      };
-
-      console.timeEnd('Array initialize');
-      // Array initialize: 1914.481ms
-      ```
-  5. console.group()，console.groupEnd()，console.groupCollapsed() 信息分组
+  ```js
+  var languages = [
+    { name: "JavaScript", fileExtension: ".js" },
+    { name: "TypeScript", fileExtension: ".ts" },
+    { name: "CoffeeScript", fileExtension: ".coffee" }
+  ];
+  console.table(languages);
+  ```
+2. console.count()
+  count方法用于计数，输出它被调用了多少次。可以接受一个字符串作为参数，作为标签，对执行次数进行分类。
+  ```js
+  function greet(user) {
+      console.count(user);
+      return "hi " + user;
+    }
+    greet('bob')
+    // bob: 1
+    // "hi bob"
+    greet('alice')
+    // alice: 1
+    // "hi alice"
+    console.log(greet('bob'))
+    // bob: 2
+    // "hi bob"
+  ```
+3. console.assert()
+  方法主要用于程序运行过程中，进行条件判断，如果不满足条件，就显示一个错误，但不会中断程序执行。这样就相当于提示用户，内部状态不正确  
+  `console.assert(false, '判断条件不成立')`
+4. console.time()，console.timeEnd() 计时
+  ```js
+  console.time('Array initialize');
+  var array= new Array(1000000);
+  for (var i = array.length - 1; i >= 0; i--) {
+    array[i] = new Object();
+  };
+  console.timeEnd('Array initialize');
+  // Array initialize: 1914.481ms
+  ```
+5. console.group()，console.groupEnd()，console.groupCollapsed() 信息分组
       ```js
       console.group('一级分组');
       console.log('一级分组的内容');
@@ -250,7 +242,7 @@ git revert 2ab1123   绝对撤销
       console.groupEnd(); // 二级分组结束
       console.groupEnd(); // 一级分组结束
       ```    
-  6. console.dir() console.dirxml() 打印对象、数组  
+6. console.dir() console.dirxml() 打印对象、数组  
 
 ### 控制台命令
   1. keys(object)，values(object) 返回数组
@@ -315,7 +307,24 @@ git revert 2ab1123   绝对撤销
     return null; 
   }
   ```
+## Array 对象  
+  ### reduce()  
+  将数组元素计算为一个值（从左到右）。
+  ```js
+  // 示例1
+  const calendarTypeOptions = [
+  { key: 'CN', display_name: 'China' },
+  { key: 'US', display_name: 'USA' },
+  { key: 'JP', display_name: 'Japan' },
+  { key: 'EU', display_name: 'Eurozone' }
+  ]
 
+  // arr to obj, such as { CN : "China", US : "USA" }
+  const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
+    acc[cur.key] = cur.display_name
+    return acc
+  }, {})
+  ```
 # 账号
 !> 123
 ## 代理
@@ -391,7 +400,7 @@ ip|节点|###
 
 # windows
 ## 常用命令
-
+{% page-ref page="about/terminology.md" %}
 ```bash
 # F7 cmd 历史命令
 
