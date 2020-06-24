@@ -5,7 +5,7 @@
 
 - vue
 
-  - [基本](vue.md)
+  - [api](vue/api.md)
 
 - php
 
